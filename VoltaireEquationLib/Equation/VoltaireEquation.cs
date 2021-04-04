@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using VoltaireEquationLib.Attributes;
 using VoltaireEquationLib.Exceptions;
 
@@ -8,11 +11,11 @@ namespace VoltaireEquationLib.Equation
     {
         public Func<double, double> F { get; set; }
         public Func<double, double, double> K { get; set; }
-        [PositiveNum]
+        [PositiveNum(ErrorMessage = nameof(Step) + " must be greater than zero")]
         public double Step { get; set; }
-        [PositiveNum]
+        [PositiveNum(ErrorMessage = nameof(LowerLimit) + " must be greater than zero")]
         public double LowerLimit { get; set; }
-        [PositiveNum]
+        [PositiveNum(ErrorMessage = nameof(UpperLimit) + " must be greater than zero")]
         public double UpperLimit { get; set; }
 
         private VoltaireEquation() { }
