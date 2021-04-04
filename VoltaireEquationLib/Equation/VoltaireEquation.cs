@@ -1,4 +1,5 @@
 ﻿using System;
+using VoltaireEquationLib.Attributes;
 using VoltaireEquationLib.Exceptions;
 
 namespace VoltaireEquationLib.Equation
@@ -7,8 +8,11 @@ namespace VoltaireEquationLib.Equation
     {
         public Func<double, double> F { get; set; }
         public Func<double, double, double> K { get; set; }
+        [PositiveNum]
         public double Step { get; set; }
+        [PositiveNum]
         public double LowerLimit { get; set; }
+        [PositiveNum]
         public double UpperLimit { get; set; }
 
         private VoltaireEquation() { }
@@ -38,7 +42,7 @@ namespace VoltaireEquationLib.Equation
         {
             if (K(LowerLimit, LowerLimit) == 0 || F(LowerLimit) !=0)
             {
-                throw new EquationNotSolvable("This equation is not solvable");
+                throw new EquationNotSolvableException("This equation is not solvable");
             }
             return 0;
         }
