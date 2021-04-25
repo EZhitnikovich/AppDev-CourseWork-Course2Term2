@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 using VolterraEquationCalculator.Controller;
 using VolterraEquationCalculator.Equations;
@@ -109,18 +110,24 @@ namespace VolterraEquationCalculator
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Thread thread = new Thread(SelectOutputType);
+            thread.Start();
+        }
+
+        private void SelectOutputType()
+        {
             if (voltaireEquation == null) return;
+
             if (radioButton1.Checked)
             {
-
+                WordController.Instance.FillWord("WordOutput", voltaireEquation.Result, (double)numericUpDownH.Value);
             }
             else if (radioButton2.Checked)
             {
-
+                ExcelController.Instance.FillExcel("ExcelOutput", voltaireEquation.Result, (double)numericUpDownH.Value);
             }
             else if (radioButton3.Checked)
             {
-                    
                 DataGridController.Instance.FillDataGrid(dataGridView1, voltaireEquation.Result, (double)numericUpDownH.Value);
             }
         }
