@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using VolterraEquationCalculator.Controller;
-using VolterraEquationCalculator.Equation;
+using VolterraEquationCalculator.Equations;
 
 namespace VolterraEquationCalculator
 {
@@ -18,17 +18,8 @@ namespace VolterraEquationCalculator
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Calculate();
-        }
-
-        private double K(double x, double s)
-        {
-            return 2 + (x - s) * (x + s);
-        }
-
-        private double F(double x)
-        {
-            return x * x;
+            Equation equation = SelectEquation();
+            Calculate(equation);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,6 +28,7 @@ namespace VolterraEquationCalculator
             numericUpDownA.Value = 0m;
             numericUpDownB.Value = 3.5m;
             radioButton3.Checked = true;
+            radioButton4.Checked = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -73,17 +65,34 @@ namespace VolterraEquationCalculator
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Calculate();
+            Equation equation = SelectEquation();
+            Calculate(equation);
         }
 
-        private void Calculate()
+        private void Calculate(Equation equation)
         {
             double A = Convert.ToDouble(numericUpDownA.Value);
             double B = Convert.ToDouble(numericUpDownB.Value);
             double H = Convert.ToDouble(numericUpDownH.Value);
-            VoltaireEquation voltaireEquation = new VoltaireEquation(F, K, H, A, B);
+            VoltaireEquation voltaireEquation = new VoltaireEquation(H, A, B, equation);
             voltaireEquation.Calculate();
             voltaireEquation.DrawChart(chart1, chartColor, 0);
+        }
+
+        private Equation SelectEquation()
+        {
+            Equation equation = null;
+
+            if (radioButton4.Checked)
+            {
+                equation = new Equation();
+            }
+            else if (radioButton5.Checked)
+            {
+                equation = new EquationOneMinusX();
+            }
+
+            return equation;
         }
     }
 }
