@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolterraEquationCalculator"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPickerDLL", "ColorPickerDLL\ColorPickerDLL.csproj", "{EB3F0ACF-C179-46F4-BC4D-3E7ABBCDFE30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AboutDLL", "AboutDLL\AboutDLL.csproj", "{9954FB91-2529-4D58-91ED-128EE73C411D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EB3F0ACF-C179-46F4-BC4D-3E7ABBCDFE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB3F0ACF-C179-46F4-BC4D-3E7ABBCDFE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB3F0ACF-C179-46F4-BC4D-3E7ABBCDFE30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9954FB91-2529-4D58-91ED-128EE73C411D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9954FB91-2529-4D58-91ED-128EE73C411D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9954FB91-2529-4D58-91ED-128EE73C411D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9954FB91-2529-4D58-91ED-128EE73C411D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

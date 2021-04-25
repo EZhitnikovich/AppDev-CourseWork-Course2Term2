@@ -94,5 +94,10 @@ namespace VolterraEquationCalculator
 
             return equation;
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AboutController.Instance.ShowHelp();
+        }
     }
 }

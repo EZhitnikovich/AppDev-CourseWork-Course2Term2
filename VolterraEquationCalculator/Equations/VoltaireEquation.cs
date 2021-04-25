@@ -39,20 +39,20 @@ namespace VolterraEquationCalculator.Equations
 
             for (int i = 2; i <= n; i++)
             {
-                var x = LowerLimit + (i - 1) * H;
+                var x = LowerLimit + (i - 1) * H; // вычисление xi
                 var g = Equation.Function(x) / H;
-                for (int j = 1; j <= i - 1; j++)
+                for (int j = 1; j <= i - 1; j++) // вычисление выражения в скобках
                 {
-                    var k1 = Equation.Kernel(x, LowerLimit + (j - 1) * H);
+                    var k1 = Equation.Kernel(x, LowerLimit + (j - 1) * H); // вычисление K(xi,xj)
                     if (j == 1)
                     {
-                        k1 /= 2;
+                        k1 /= 2; // Ai = 0.5
                     }
 
                     g -= k1 * Result[j-1];
                 }
 
-                Result[i-1] = (2 * g) / Equation.Kernel(x, x);
+                Result[i-1] = (2 * g) / Equation.Kernel(x, x); // вычисление yi
             }
         }
 

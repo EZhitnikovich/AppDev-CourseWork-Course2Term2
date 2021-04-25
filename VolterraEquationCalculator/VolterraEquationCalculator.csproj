@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AboutController.cs" />
     <Compile Include="Controller\ColorController.cs" />
     <Compile Include="Equations\Equation.cs" />
     <Compile Include="Equations\EquationOneMinusX.cs" />
