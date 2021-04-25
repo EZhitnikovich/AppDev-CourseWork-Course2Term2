@@ -15,6 +15,7 @@ namespace VolterraEquationCalculator
         }
 
         private Color chartColor = default;
+        private VoltaireEquation voltaireEquation;
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -29,6 +30,11 @@ namespace VolterraEquationCalculator
             numericUpDownB.Value = 3.5m;
             radioButton3.Checked = true;
             radioButton4.Checked = true;
+            dataGridView1.RowCount = 2;
+            dataGridView1.ColumnCount = 10;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Rows[0].HeaderCell.Value = "x=";
+            dataGridView1.Rows[1].HeaderCell.Value = "y=";
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -59,6 +65,7 @@ namespace VolterraEquationCalculator
                 chart1Series.Points.Clear();
             }
 
+            voltaireEquation = null;
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
         }
@@ -74,7 +81,7 @@ namespace VolterraEquationCalculator
             double A = Convert.ToDouble(numericUpDownA.Value);
             double B = Convert.ToDouble(numericUpDownB.Value);
             double H = Convert.ToDouble(numericUpDownH.Value);
-            VoltaireEquation voltaireEquation = new VoltaireEquation(H, A, B, equation);
+            voltaireEquation = new VoltaireEquation(H, A, B, equation);
             voltaireEquation.Calculate();
             voltaireEquation.DrawChart(chart1, chartColor, 0);
         }
@@ -98,6 +105,24 @@ namespace VolterraEquationCalculator
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             AboutController.Instance.ShowHelp();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (voltaireEquation == null) return;
+            if (radioButton1.Checked)
+            {
+
+            }
+            else if (radioButton2.Checked)
+            {
+
+            }
+            else if (radioButton3.Checked)
+            {
+                    
+                DataGridController.Instance.FillDataGrid(dataGridView1, voltaireEquation.Result, (double)numericUpDownH.Value);
+            }
         }
     }
 }
