@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VoltairesEquationLib")]
+[assembly: AssemblyTitle("ColorPickerDLL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VoltairesEquationLib")]
+[assembly: AssemblyProduct("ColorPickerDLL")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2de7e4c7-dd4a-40ff-ac6f-d27f69d2a9cb")]
+[assembly: Guid("eb3f0acf-c179-46f4-bc4d-3e7abbcdfe30")]
 
 // Version information for an assembly consists of the following four values:
 //
