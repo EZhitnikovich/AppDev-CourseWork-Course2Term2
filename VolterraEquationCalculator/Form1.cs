@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using VoltaireEquationCalculator.Controller;
 using VoltaireEquationCalculator.Equations;
 
@@ -35,6 +36,13 @@ namespace VoltaireEquationCalculator
             dataGridView1.ReadOnly = true;
             dataGridView1.Rows[0].HeaderCell.Value = "x=";
             dataGridView1.Rows[1].HeaderCell.Value = "y=";
+            chart1.Series[0].ChartType = SeriesChartType.Spline;
+            for(int i = 0; i < 10; i++)
+            {
+                chart1.Series[0].Points.AddXY(i, i*i);
+                dataGridView1.Rows[0].Cells[i].Value = i;
+                dataGridView1.Rows[1].Cells[i].Value = i * i;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
