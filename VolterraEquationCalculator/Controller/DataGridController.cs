@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace VolterraEquationCalculator.Controller
 {
-    class DataGridController
+    internal class DataGridController
     {
         private static DataGridController instance;
+        private readonly object dataGridLock = new object();
 
         public static DataGridController Instance
         {
@@ -27,14 +27,21 @@ namespace VolterraEquationCalculator.Controller
         {
         }
 
-        public void FillDataGrid<T>(DataGridView dataGrid, IEnumerable<T> values, double step)
+        public void FillDataGrid<T>(ref DataGridView dataGrid, IEnumerable<T> values, double step)
         {
-            dataGrid.ColumnCount = values.Count();
-            dataGrid.RowCount = 2;
-            for (int i = 0; i < values.Count(); i++)
+            lock (dataGridLock)
             {
-                dataGrid.Rows[0].Cells[i].Value = i * step;
-                dataGrid.Rows[1].Cells[i].Value = values.ElementAt(i);
+                dataGrid.ColumnCount = 1;
+                dataGrid.Columns[0].HeaderText = "i = 0";
+                dataGrid.RowCount = 2;
+                for (int i = 0; i < values.Count(); i++)
+                {
+                    if (i < values.Count() - 1)
+                        dataGrid.Columns.Add("Column" + i.ToString(), "i = " + (i + 1).ToString());
+
+                    dataGrid.Rows[0].Cells[i].Value = i * step;
+                    dataGrid.Rows[1].Cells[i].Value = values.ElementAt(i);
+                }
             }
         }
     }
