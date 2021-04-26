@@ -89,9 +89,16 @@ namespace VoltaireEquationCalculator
             double A = Convert.ToDouble(numericUpDownA.Value);
             double B = Convert.ToDouble(numericUpDownB.Value);
             double H = Convert.ToDouble(numericUpDownH.Value);
-            voltaireEquation = new VoltaireEquation(H, A, B, equation);
-            voltaireEquation.Calculate();
-            voltaireEquation.DrawChart(chart1, chartColor, 0);
+            try
+            {
+                voltaireEquation = new VoltaireEquation(H, A, B, equation);
+                voltaireEquation.Calculate();
+                voltaireEquation.DrawChart(chart1, chartColor, 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private Equation SelectEquation()
