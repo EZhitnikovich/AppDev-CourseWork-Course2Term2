@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace VoltaireEquationCalculator.Controller
@@ -40,13 +41,22 @@ namespace VoltaireEquationCalculator.Controller
             sheet.Name = name;
 
             sheet.Cells[1, 1] = "x";
-            sheet.Cells[2, 1] = "y";
+            sheet.Cells[1, 2] = "y";
 
             for (int i = 1; i < values.Count() + 1; i++)
             {
-                sheet.Cells[1, i + 1] = step*(i-1);
-                sheet.Cells[2, i + 1] = values.ElementAt(i-1);
+                sheet.Cells[i + 1, 1] = step*(i-1);
+                sheet.Cells[i + 1, 2] = values.ElementAt(i-1);
             }
+
+            Excel.ChartObjects xlCharts = (Excel.ChartObjects)sheet.ChartObjects(Type.Missing);
+            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(110, 0, 350, 250);
+            Excel.Chart chart = myChart.Chart;
+            Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)chart.SeriesCollection(Type.Missing);
+            Excel.Series series = seriesCollection.NewSeries();
+            series.XValues = sheet.get_Range("A2", "A"+(values.Count()+1).ToString());
+            series.Values = sheet.get_Range("B2", "B" + (values.Count() + 1).ToString());
+            chart.ChartType = Excel.XlChartType.xlXYScatterSmooth;
         }
     }
 }
