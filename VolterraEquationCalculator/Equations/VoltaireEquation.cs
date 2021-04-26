@@ -8,7 +8,24 @@ namespace VoltaireEquationCalculator.Equations
     public class VoltaireEquation
     {
         public Equation Equation { get; set; }
-        public double H { get; set; }
+
+        private double h;
+        public double H
+        {
+            get
+            {
+                return h;
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Step must be greater then 0");
+                }
+
+                h = value;
+            }
+        }
         public double LowerLimit { get; set; }
         public double UpperLimit { get; set; }
         public double[] Result { get; private set; }

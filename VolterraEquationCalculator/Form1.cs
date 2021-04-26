@@ -37,9 +37,9 @@ namespace VoltaireEquationCalculator
             dataGridView1.Rows[0].HeaderCell.Value = "x=";
             dataGridView1.Rows[1].HeaderCell.Value = "y=";
             chart1.Series[0].ChartType = SeriesChartType.Spline;
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                chart1.Series[0].Points.AddXY(i, i*i);
+                chart1.Series[0].Points.AddXY(i, i * i);
                 dataGridView1.Rows[0].Cells[i].Value = i;
                 dataGridView1.Rows[1].Cells[i].Value = i * i;
             }
@@ -123,24 +123,52 @@ namespace VoltaireEquationCalculator
 
         private void SelectOutputType()
         {
+            if (radioButton1.Checked)
+            {
+                ExportData("word");
+            }
+            else if (radioButton2.Checked)
+            {
+                ExportData("excel");
+            }
+            else if (radioButton3.Checked)
+            {
+                ExportData("table");
+            }
+        }
+
+        private void excelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportData("excel");
+        }
+
+        private void wordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportData("word");
+        }
+
+        private void таблицаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportData("table");
+        }
+
+        private void ExportData(string selector)
+        {
             if (voltaireEquation == null) return;
 
             try
             {
-                if (radioButton1.Checked)
+                switch (selector.ToLower())
                 {
-                    WordController.Instance.FillWord("WordOutput", voltaireEquation.Result,
-                        (double)numericUpDownH.Value);
-                }
-                else if (radioButton2.Checked)
-                {
-                    ExcelController.Instance.FillExcel("ExcelOutput", voltaireEquation.Result,
-                        (double)numericUpDownH.Value);
-                }
-                else if (radioButton3.Checked)
-                {
-                    DataGridController.Instance.FillDataGrid(ref dataGridView1, voltaireEquation.Result,
-                        (double)numericUpDownH.Value);
+                    case "excel":
+                        ExcelController.Instance.FillExcel("ExcelOutput", voltaireEquation.Result,
+                            (double)numericUpDownH.Value); break;
+                    case "word":
+                        WordController.Instance.FillWord("WordOutput", voltaireEquation.Result,
+                            (double)numericUpDownH.Value); break;
+                    case "table":
+                        DataGridController.Instance.FillDataGrid(ref dataGridView1, voltaireEquation.Result,
+                            (double)numericUpDownH.Value); break;
                 }
             }
             catch (Exception ex)
