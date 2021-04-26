@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
 using Word = Microsoft.Office.Interop.Word;
 
-namespace VolterraEquationCalculator.Controller
+namespace VoltaireEquationCalculator.Controller
 {
     class WordController
     {

@@ -1,4 +1,4 @@
-﻿namespace VolterraEquationCalculator.Equations
+﻿namespace VoltaireEquationCalculator.Equations
 {
     public class Equation
     {

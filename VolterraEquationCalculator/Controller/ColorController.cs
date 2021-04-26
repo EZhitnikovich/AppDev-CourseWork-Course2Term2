@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Reflection;
 
-namespace VolterraEquationCalculator.Controller
+namespace VoltaireEquationCalculator.Controller
 {
     internal class ColorController
     {

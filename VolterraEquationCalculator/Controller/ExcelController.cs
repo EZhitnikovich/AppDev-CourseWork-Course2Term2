@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace VolterraEquationCalculator.Controller
+namespace VoltaireEquationCalculator.Controller
 {
     class ExcelController
     {

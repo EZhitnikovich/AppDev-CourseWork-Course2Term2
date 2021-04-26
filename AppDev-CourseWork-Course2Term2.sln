@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolterraEquationCalculator", "VolterraEquationCalculator\VolterraEquationCalculator.csproj", "{5ED7FED1-5079-4AD6-A701-472064DD10A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoltaireEquationCalculator", "VolterraEquationCalculator\VoltaireEquationCalculator.csproj", "{5ED7FED1-5079-4AD6-A701-472064DD10A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPickerDLL", "ColorPickerDLL\ColorPickerDLL.csproj", "{EB3F0ACF-C179-46F4-BC4D-3E7ABBCDFE30}"
 EndProject

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace VolterraEquationCalculator.Equations
+namespace VoltaireEquationCalculator.Equations
 {
     class EquationOneMinusX: Equation
     {

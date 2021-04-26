@@ -1,5 +1,5 @@
 ﻿
-namespace VolterraEquationCalculator
+namespace VoltaireEquationCalculator
 {
     partial class Form1
     {

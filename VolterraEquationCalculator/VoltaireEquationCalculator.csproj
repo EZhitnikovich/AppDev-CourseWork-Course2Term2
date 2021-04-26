@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5ED7FED1-5079-4AD6-A701-472064DD10A4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>VolterraEquationCalculator</RootNamespace>
-    <AssemblyName>VolterraEquationCalculator</AssemblyName>
+    <RootNamespace>VoltaireEquationCalculator</RootNamespace>
+    <AssemblyName>VoltaireEquationCalculator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -81,6 +81,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

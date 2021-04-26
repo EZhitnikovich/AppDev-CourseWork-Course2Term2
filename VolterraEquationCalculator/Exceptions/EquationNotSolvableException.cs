@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VolterraEquationCalculator.Exceptions
+namespace VoltaireEquationCalculator.Exceptions
 {
     internal class EquationNotSolvableException : Exception
     {

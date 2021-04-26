@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace VolterraEquationCalculator.Controller
+namespace VoltaireEquationCalculator.Controller
 {
     internal class AboutController
     {

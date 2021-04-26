@@ -2,10 +2,10 @@
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using VolterraEquationCalculator.Controller;
-using VolterraEquationCalculator.Equations;
+using VoltaireEquationCalculator.Controller;
+using VoltaireEquationCalculator.Equations;
 
-namespace VolterraEquationCalculator
+namespace VoltaireEquationCalculator
 {
     public partial class Form1 : Form
     {
